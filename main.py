@@ -14,7 +14,7 @@ load_dotenv()
 
 # Configurações (substitui ou usa .env)
 TELEGRAM_BOT_TOKEN = "8308362105:AAELmmAUIcTgbJ3xozM1mhsLPk-8EqOSOgY"
-TELEGRAM_CHANNEL_ID = "-7403168033"
+TELEGRAM_CHANNEL_ID = "-1003278747270"
 
 # URL da API REAL que funciona
 API_URL = "https://api-cs.casino.org/svc-evolution-game-events/api/bacbo/latest"
