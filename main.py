@@ -36,9 +36,75 @@ OUTCOME_MAP = {
 }
 
 PADROES = [
-    {"id": 1, "sequencia": ["🔵", "🔴"], "sinal": "🔵"},     # 🔵🔴 → 🔵
-    {"id": 2, "sequencia": ["🔴", "🔵"], "sinal": "🔴"},     # 🔴🔵 → 🔴
-    {"id": 10, "sequencia": ["🔵", "🔴"], "sinal": "🔵"},    # compatibilidade
+    PADROES = [
+    # ─── Padrões mais comentados / "populares" em 2024–2025 ──────
+    
+    # 4 seguidas (muito faladas, mas taxa real ~48-52% na prática)
+    {"id": 101, "sequencia": ["🔵","🔵","🔵"],       "sinal": "🔵"},   # 3 azuis → espera 4º azul
+    {"id": 102, "sequencia": ["🔴","🔴","🔴"],       "sinal": "🔴"},   # 3 vermelhos → espera 4º vermelho
+
+    # 4 alternados (muito populares no Brasil e Angola)
+    {"id": 201, "sequencia": ["🔵","🔴","🔵"],       "sinal": "🔴"},
+    {"id": 202, "sequencia": ["🔴","🔵","🔴"],       "sinal": "🔵"},
+
+    # 5 alternados (mais arriscado ainda)
+    {"id": 301, "sequencia": ["🔵","🔴","🔵","🔴"], "sinal": "🔵"},
+    {"id": 302, "sequencia": ["🔴","🔵","🔴","🔵"], "sinal": "🔴"},
+
+    # 3 → 1 repetição (muito usado também)
+    {"id": 401, "sequencia": ["🔵","🔵","🔴"],       "sinal": "🔵"},   # duas azuis + vermelho → volta azul
+    {"id": 402, "sequencia": ["🔴","🔴","🔵"],       "sinal": "🔴"},
+
+    # Padrão "corte curto depois de 3"
+    {"id": 501, "sequencia": ["🔵","🔵","🔵","🔴"], "sinal": "🔵"},   # 3 azuis + 1 vermelho → volta azul
+    {"id": 502, "sequencia": ["🔴","🔴","🔴","🔵"], "sinal": "🔴"},
+
+    # Padrão "zigzag depois de 3 iguais"
+    {"id": 601, "sequencia": ["🔵","🔵","🔵"],       "sinal": "🔴"},   # quebra depois de 3 (oposto)
+    {"id": 602, "sequencia": ["🔴","🔴","🔴"],       "sinal": "🔵"},
+
+    # 5 seguidas (muito raro sinalizar, mas muita gente gosta)
+    {"id": 701, "sequencia": ["🔵","🔵","🔵","🔵"], "sinal": "🔵"},   # 4 azuis → tenta a 5ª
+    {"id": 702, "sequencia": ["🔴","🔴","🔴","🔴"], "sinal": "🔴"},
+    # 2×1
+    {"id": 2001, "sequencia": ["🔵","🔵","🔴"],               "sinal": "🔵"},
+    {"id": 2002, "sequencia": ["🔴","🔴","🔵"],               "sinal": "🔴"},
+
+    # 2×2
+    {"id": 2011, "sequencia": ["🔵","🔵","🔴","🔴"],          "sinal": "🔵"},
+    {"id": 2012, "sequencia": ["🔴","🔴","🔵","🔵"],          "sinal": "🔴"},
+
+    # 3×1
+    {"id": 2021, "sequencia": ["🔵","🔵","🔵","🔴"],          "sinal": "🔵"},
+    {"id": 2022, "sequencia": ["🔴","🔴","🔴","🔵"],          "sinal": "🔴"},
+
+    # 2×3
+    {"id": 2031, "sequencia": ["🔵","🔵","🔴","🔴","🔴"],     "sinal": "🔵"},
+    {"id": 2032, "sequencia": ["🔴","🔴","🔵","🔵","🔵"],     "sinal": "🔴"},
+
+    # 3×3
+    {"id": 2041, "sequencia": ["🔵","🔵","🔵","🔴","🔴","🔴"], "sinal": "🔵"},
+    {"id": 2042, "sequencia": ["🔴","🔴","🔴","🔵","🔵","🔵"], "sinal": "🔴"},
+
+    # 4×1
+    {"id": 2051, "sequencia": ["🔵","🔵","🔵","🔵","🔴"],     "sinal": "🔵"},
+    {"id": 2052, "sequencia": ["🔴","🔴","🔴","🔴","🔵"],     "sinal": "🔴"},
+
+    # 4×4
+    {"id": 2061, "sequencia": ["🔵","🔵","🔵","🔵","🔴","🔴","🔴","🔴"], "sinal": "🔵"},
+    {"id": 2062, "sequencia": ["🔴","🔴","🔴","🔴","🔵","🔵","🔵","🔵"], "sinal": "🔴"},
+
+    # 1×2
+    {"id": 2071, "sequencia": ["🔵","🔴","🔴"],               "sinal": "🔵"},
+    {"id": 2072, "sequencia": ["🔴","🔵","🔵"],               "sinal": "🔴"},
+
+    # 1×3
+    {"id": 2081, "sequencia": ["🔵","🔴","🔴","🔴"],          "sinal": "🔵"},
+    {"id": 2082, "sequencia": ["🔴","🔵","🔵","🔵"],          "sinal": "🔴"},
+
+    # 1×4
+    {"id": 2091, "sequencia": ["🔵","🔴","🔴","🔴","🔴"],     "sinal": "🔵"},
+    {"id": 2092, "sequencia": ["🔴","🔵","🔵","🔵","🔵"],     "sinal": "🔴"},
 ]
 
 API_POLL_INTERVAL = 3
