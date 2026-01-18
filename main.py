@@ -474,6 +474,4 @@ async def scheduler_worker():
 
 
 # ---------- Entrypoint ----------
-async def main():
-    # Verifica token / chat id mínimo
-    if "8308362105:AAELmmAUIcTgbJ3xozM1mhsLPk-8EqOSOgY" in TELEGRAM_BOT_TOKEN or "-7403168033" in TELEGRAM_CHANNEL_ID:
+async def main()::
