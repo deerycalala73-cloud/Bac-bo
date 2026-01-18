@@ -471,7 +471,3 @@ async def scheduler_worker():
             log.error(f"❌ Erro no scheduler_worker: {e}")
             await asyncio.sleep(2)
         await asyncio.sleep(SIGNAL_CYCLE_INTERVAL)
-
-
-# ---------- Entrypoint ----------
-async def main()::
