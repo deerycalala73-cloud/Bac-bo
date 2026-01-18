@@ -35,37 +35,31 @@ OUTCOME_MAP = {
     "🟡": "🟡",
 }
 
+# Lista de padrões corrigida e organizada
 PADROES = [
-    PADROES = [
-    # ─── Padrões mais comentados / "populares" em 2024–2025 ──────
-    
-    # 4 seguidas (muito faladas, mas taxa real ~48-52% na prática)
+    # Padrões mais comentados / populares em 2024–2025
     {"id": 101, "sequencia": ["🔵","🔵","🔵"],       "sinal": "🔵"},   # 3 azuis → espera 4º azul
     {"id": 102, "sequencia": ["🔴","🔴","🔴"],       "sinal": "🔴"},   # 3 vermelhos → espera 4º vermelho
 
-    # 4 alternados (muito populares no Brasil e Angola)
     {"id": 201, "sequencia": ["🔵","🔴","🔵"],       "sinal": "🔴"},
     {"id": 202, "sequencia": ["🔴","🔵","🔴"],       "sinal": "🔵"},
 
-    # 5 alternados (mais arriscado ainda)
     {"id": 301, "sequencia": ["🔵","🔴","🔵","🔴"], "sinal": "🔵"},
     {"id": 302, "sequencia": ["🔴","🔵","🔴","🔵"], "sinal": "🔴"},
 
-    # 3 → 1 repetição (muito usado também)
-    {"id": 401, "sequencia": ["🔵","🔵","🔴"],       "sinal": "🔵"},   # duas azuis + vermelho → volta azul
+    {"id": 401, "sequencia": ["🔵","🔵","🔴"],       "sinal": "🔵"},
     {"id": 402, "sequencia": ["🔴","🔴","🔵"],       "sinal": "🔴"},
 
-    # Padrão "corte curto depois de 3"
-    {"id": 501, "sequencia": ["🔵","🔵","🔵","🔴"], "sinal": "🔵"},   # 3 azuis + 1 vermelho → volta azul
+    {"id": 501, "sequencia": ["🔵","🔵","🔵","🔴"], "sinal": "🔵"},
     {"id": 502, "sequencia": ["🔴","🔴","🔴","🔵"], "sinal": "🔴"},
 
-    # Padrão "zigzag depois de 3 iguais"
-    {"id": 601, "sequencia": ["🔵","🔵","🔵"],       "sinal": "🔴"},   # quebra depois de 3 (oposto)
+    {"id": 601, "sequencia": ["🔵","🔵","🔵"],       "sinal": "🔴"},
     {"id": 602, "sequencia": ["🔴","🔴","🔴"],       "sinal": "🔵"},
 
-    # 5 seguidas (muito raro sinalizar, mas muita gente gosta)
-    {"id": 701, "sequencia": ["🔵","🔵","🔵","🔵"], "sinal": "🔵"},   # 4 azuis → tenta a 5ª
+    {"id": 701, "sequencia": ["🔵","🔵","🔵","🔵"], "sinal": "🔵"},
     {"id": 702, "sequencia": ["🔴","🔴","🔴","🔴"], "sinal": "🔴"},
+
+    # Padrões do tipo NxM (sua lista mais recente)
     # 2×1
     {"id": 2001, "sequencia": ["🔵","🔵","🔴"],               "sinal": "🔵"},
     {"id": 2002, "sequencia": ["🔴","🔴","🔵"],               "sinal": "🔴"},
@@ -120,7 +114,7 @@ logger = logging.getLogger("BacBoBot")
 
 bot = Bot(token=TELEGRAM_BOT_TOKEN)
 
-# Estado global - TODAS as chaves críticas inicializadas
+# Estado global
 state: Dict[str, Any] = {
     "history": [],
     "last_round_id": None,
@@ -140,7 +134,7 @@ state: Dict[str, Any] = {
     "analise_message_id": None,
     "last_reset_date": None,
     "last_analise_refresh": 0.0,
-    "last_result_round_id": None,           # ← Correção principal para o erro
+    "last_result_round_id": None,
 }
 
 
@@ -307,7 +301,6 @@ async def resolve_after_result():
     if not state.get("waiting_for_result", False) or not state.get("last_signal_color"):
         return
 
-    # Segurança extra
     if "last_result_round_id" not in state:
         state["last_result_round_id"] = None
     if "last_round_id" not in state:
